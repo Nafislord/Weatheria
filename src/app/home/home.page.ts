@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WeatherService } from '../services/weather.service';
+import { WSAEACCES } from 'constants';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private ws : WeatherService) {
+    this.test()
+  }
+
+  test(){
+    this.ws.getWeatherData("London")
+  }
 
 }
